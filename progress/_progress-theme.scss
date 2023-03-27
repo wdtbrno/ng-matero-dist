@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+
+@mixin mtx-progress-theme($theme) {
+  $background: map-get($theme, background);
+
+  .mtx-progress {
+    background-color: mat-color($background, hover);
+  }
+
+  .mtx-progress-fill-info {
+    background-color: mat-color($mat-blue, 500);
+    color: white;
+  }
+
+  .mtx-progress-fill-success {
+    background-color: mat-color($mat-green, 500);
+    color: white;
+  }
+
+  .mtx-progress-fill-warning {
+    background-color: mat-color($mat-orange, 500);
+    color: white;
+  }
+
+  .mtx-progress-fill-danger {
+    background-color: mat-color($mat-red, 500);
+    color: white;
+  }
+}

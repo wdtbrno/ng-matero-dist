@@ -1,0 +1,36 @@
+.mtx-alert {
+  position: relative;
+  display: block;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.mtx-alert-close {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 1.25rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: inherit;
+  opacity: .5;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  [dir='rtl'] & {
+    right: auto;
+    left: 0;
+  }
+
+  &:hover {
+    opacity: .75;
+  }
+}
+
+.mtx-alert-dismissible {
+  padding-right: 4rem;
+}

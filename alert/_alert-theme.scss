@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+
+@mixin mtx-alert-theme($theme) {
+  $background: map-get($theme, background);
+
+  .mtx-alert {
+    background-color: mat-color($background, card);
+  }
+
+  .mtx-alert-info.mtx-alert {
+    background-color: mat-color($mat-blue, 500);
+    color: white;
+  }
+
+  .mtx-alert-success.mtx-alert {
+    background-color: mat-color($mat-green, 500);
+    color: white;
+  }
+
+  .mtx-alert-warning.mtx-alert {
+    background-color: mat-color($mat-orange, 500);
+    color: white;
+  }
+
+  .mtx-alert-danger.mtx-alert {
+    background-color: mat-color($mat-red, 500);
+    color: white;
+  }
+}

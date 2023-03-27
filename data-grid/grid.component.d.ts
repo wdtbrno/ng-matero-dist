@@ -1,0 +1,131 @@
+import { OnInit, EventEmitter, OnChanges, TemplateRef, TrackByFunction, OnDestroy, AfterViewInit, ChangeDetectorRef, ElementRef, SimpleChanges } from '@angular/core';
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { Sort, MatSort, SortDirection } from '@angular/material/sort';
+import { ThemePalette } from '@angular/material/core';
+import { MtxGridColumn, MtxGridColumnSelectionItem, MtxGridCellTemplate, MtxGridRowSelectionFormatter, MtxGridRowClassFormatter, MtxGridColumnMenu, MtxGridButtonType } from './grid.interface';
+import { MtxGridCellSelectionDirective } from './cell-selection.directive';
+import { MtxGridExpansionToggleDirective } from './expansion-toggle.directive';
+import { MtxGridService } from './grid.service';
+export declare class MtxGridComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+    private _dataGridSrv;
+    private _changeDetectorRef;
+    paginator: MatPaginator;
+    sort: MatSort;
+    columnMenu: MtxGridColumnMenu;
+    tableContainer: ElementRef<HTMLDivElement>;
+    dataSource: MatTableDataSource<unknown>;
+    displayedColumns: string[];
+    columns: MtxGridColumn[];
+    data: any[];
+    length: number;
+    loading: boolean;
+    trackBy: TrackByFunction<any>;
+    columnResizable: boolean;
+    pageOnFront: boolean;
+    showPaginator: boolean;
+    pageDisabled: boolean;
+    showFirstLastButtons: boolean;
+    pageIndex: number;
+    pageSize: number;
+    pageSizeOptions: number[];
+    hidePageSize: boolean;
+    page: EventEmitter<PageEvent>;
+    paginationTemplate: TemplateRef<any>;
+    sortOnFront: boolean;
+    sortActive: string;
+    sortDirection: SortDirection;
+    sortDisableClear: boolean;
+    sortDisabled: boolean;
+    sortStart: 'asc' | 'desc';
+    sortChange: EventEmitter<Sort>;
+    rowHover: boolean;
+    rowStriped: boolean;
+    rowClick: EventEmitter<any>;
+    expansionRowStates: any[];
+    expandable: boolean;
+    expandAlways: boolean;
+    expansionTemplate: TemplateRef<any>;
+    expansionChange: EventEmitter<any>;
+    /** Whether support multiple row/cell selection. */
+    multiSelectable: boolean;
+    rowSelection: SelectionModel<any>;
+    rowSelected: never[];
+    rowSelectable: boolean;
+    hideRowSelectionCheckbox: boolean;
+    rowSelectionFormatter: MtxGridRowSelectionFormatter;
+    rowClassFormatter: MtxGridRowClassFormatter;
+    rowSelectionChange: EventEmitter<any[]>;
+    cellSelection: any[];
+    cellSelectable: boolean;
+    cellSelectionChange: EventEmitter<any[]>;
+    private _selectedCell;
+    showToolbar: boolean;
+    toolbarTitle: string;
+    toolbarTemplate: TemplateRef<any>;
+    columnMenuData: MtxGridColumnSelectionItem[];
+    showColumnMenuButton: boolean;
+    columnMenuButtonText: string;
+    columnMenuButtonType: MtxGridButtonType;
+    columnMenuButtonColor: ThemePalette;
+    columnMenuButtonClass: string;
+    columnMenuButtonIcon: string;
+    columnHideable: boolean;
+    columnHideableChecked: 'show' | 'hide';
+    columnMovable: boolean;
+    columnPinnable: boolean;
+    columnChange: EventEmitter<MtxGridColumnSelectionItem[]>;
+    showColumnMenuHeader: boolean;
+    columnMenuHeaderText: string;
+    columnMenuHeaderTemplate: TemplateRef<any>;
+    showColumnMenuFooter: boolean;
+    columnMenuFooterText: string;
+    columnMenuFooterTemplate: TemplateRef<any>;
+    noResultText: string;
+    noResultTemplate: TemplateRef<any>;
+    get _hasNoResult(): boolean;
+    headerTemplate: TemplateRef<any> | MtxGridCellTemplate | any;
+    headerExtraTemplate: TemplateRef<any> | MtxGridCellTemplate | any;
+    cellTemplate: TemplateRef<any> | MtxGridCellTemplate | any;
+    showSummary: boolean;
+    summaryTemplate: TemplateRef<any> | MtxGridCellTemplate | any;
+    get _whetherShowSummary(): boolean;
+    showSidebar: boolean;
+    sidebarTemplate: TemplateRef<any>;
+    showStatusbar: boolean;
+    statusbarTemplate: TemplateRef<any>;
+    constructor(_dataGridSrv: MtxGridService, _changeDetectorRef: ChangeDetectorRef);
+    detectChanges(): void;
+    _isTemplateRef(obj: any): boolean;
+    _getColData(data: any[], colDef: MtxGridColumn): any[];
+    _getRowClassList(rowData: any, index: number): any;
+    ngOnInit(): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    _countPinnedPosition(): void;
+    _getIndex(index: number, dataIndex: number): number;
+    _handleSortChange(sort: Sort): void;
+    /** Expansion change event */
+    _handleExpansionChange(expansionRef: MtxGridExpansionToggleDirective, rowData: any, column: any, index: number): void;
+    /** Cell select event */
+    _selectCell(cellRef: MtxGridCellSelectionDirective, rowData: any, colDef: any): void;
+    /** Row select event */
+    _selectRow(event: MouseEvent, rowData: any, index: number): void;
+    /** Whether the number of selected elements matches the total number of rows. */
+    _isAllSelected(): boolean;
+    /** Select all rows if they are not all selected; otherwise clear selection. */
+    _toggleMasterCheckbox(): void;
+    /** Select normal row */
+    _toggleNormalCheckbox(row: any): void;
+    /** Column change event */
+    _handleColumnChange(columns: any[]): void;
+    getDisplayedColumnFields(columns: any[]): string[];
+    /** Customize expansion event */
+    toggleExpansion(index: number): any;
+    /** Scroll to top when turn to the next page. */
+    _handlePage(e: PageEvent): void;
+    scrollTop(value?: number): number | void;
+    scrollLeft(value?: number): number | void;
+}

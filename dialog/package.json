@@ -1,0 +1,11 @@
+{
+  "main": "../bundles/mtxDialog.umd.js",
+  "module": "../fesm2015/mtxDialog.js",
+  "es2015": "../fesm2015/mtxDialog.js",
+  "esm2015": "../esm2015/dialog/mtxDialog.js",
+  "fesm2015": "../fesm2015/mtxDialog.js",
+  "typings": "mtxDialog.d.ts",
+  "metadata": "mtxDialog.metadata.json",
+  "sideEffects": false,
+  "name": "@ng-matero/extensions/dialog"
+}

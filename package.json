@@ -1,0 +1,55 @@
+{
+  "name": "@ng-matero/extensions",
+  "version": "11.5.1",
+  "description": "Angular Material Extensions",
+  "author": "nzbin<nzb329@163.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ng-matero/extensions.git"
+  },
+  "keywords": [
+    "angular",
+    "angular-material",
+    "angular-components",
+    "angular-material-extensions",
+    "angular-admin",
+    "ng-matero",
+    "data-grid",
+    "ngx-data-grid",
+    "material-data-table",
+    "color-picker",
+    "ngx-color",
+    "ngx-color-picker",
+    "ng-select",
+    "typeahead",
+    "autocomplete",
+    "checkbox-group",
+    "popover"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ng-matero/extensions/issues"
+  },
+  "homepage": "https://ng-matero.github.io/extensions/",
+  "dependencies": {
+    "@ng-select/ng-select": "^6.0.0",
+    "ngx-color": "^6.0.0",
+    "photoviewer": "^3.6.0",
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/animations": ">=11.0.0",
+    "@angular/cdk": ">=11.0.0",
+    "@angular/common": ">=11.0.0",
+    "@angular/core": ">=11.0.0",
+    "@angular/material": ">=11.0.0"
+  },
+  "sideEffects": false,
+  "main": "bundles/extensions.umd.js",
+  "module": "fesm2015/extensions.js",
+  "es2015": "fesm2015/extensions.js",
+  "esm2015": "esm2015/extensions.js",
+  "fesm2015": "fesm2015/extensions.js",
+  "typings": "extensions.d.ts",
+  "metadata": "extensions.metadata.json"
+}

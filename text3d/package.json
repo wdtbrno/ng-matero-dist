@@ -1,0 +1,11 @@
+{
+  "main": "../bundles/mtxText3d.umd.js",
+  "module": "../fesm2015/mtxText3d.js",
+  "es2015": "../fesm2015/mtxText3d.js",
+  "esm2015": "../esm2015/text3d/mtxText3d.js",
+  "fesm2015": "../fesm2015/mtxText3d.js",
+  "typings": "mtxText3d.d.ts",
+  "metadata": "mtxText3d.metadata.json",
+  "sideEffects": false,
+  "name": "@ng-matero/extensions/text3d"
+}

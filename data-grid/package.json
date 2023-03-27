@@ -1,0 +1,11 @@
+{
+  "main": "../bundles/mtxGrid.umd.js",
+  "module": "../fesm2015/mtxGrid.js",
+  "es2015": "../fesm2015/mtxGrid.js",
+  "esm2015": "../esm2015/data-grid/mtxGrid.js",
+  "fesm2015": "../fesm2015/mtxGrid.js",
+  "typings": "mtxGrid.d.ts",
+  "metadata": "mtxGrid.metadata.json",
+  "sideEffects": false,
+  "name": "@ng-matero/extensions/data-grid"
+}

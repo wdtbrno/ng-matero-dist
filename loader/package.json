@@ -1,0 +1,11 @@
+{
+  "main": "../bundles/mtxLoader.umd.js",
+  "module": "../fesm2015/mtxLoader.js",
+  "es2015": "../fesm2015/mtxLoader.js",
+  "esm2015": "../esm2015/loader/mtxLoader.js",
+  "fesm2015": "../fesm2015/mtxLoader.js",
+  "typings": "mtxLoader.d.ts",
+  "metadata": "mtxLoader.metadata.json",
+  "sideEffects": false,
+  "name": "@ng-matero/extensions/loader"
+}

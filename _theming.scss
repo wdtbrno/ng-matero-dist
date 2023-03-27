@@ -1,0 +1,31 @@
+@import '~photoviewer/dist/photoviewer';
+
+@import './button/button-loading';
+
+@import './alert/alert-theme';
+@import './data-grid/grid-theme';
+@import './loader/loader-theme';
+@import './popover/popover-theme';
+@import './progress/progress-theme';
+@import './select/select-theme';
+@import './split-pane/split-theme';
+@import './tooltip/tooltip-theme';
+
+@mixin material-extensions-theme($theme) {
+  @include mtx-alert-theme($theme);
+  @include mtx-grid-theme($theme);
+  @include mtx-loader-theme($theme);
+  @include mtx-popover-theme($theme);
+  @include mtx-progress-theme($theme);
+  @include mtx-select-theme($theme);
+  @include mtx-split-theme($theme);
+  @include mtx-tooltip-theme($theme);
+}
+
+@import './form-group/form-group-theme';
+@import './text3d/text3d-theme';
+
+@mixin material-extensions-experimental-theme($theme) {
+  @include mtx-form-group-theme($theme);
+  @include mtx-text3d-theme($theme);
+}

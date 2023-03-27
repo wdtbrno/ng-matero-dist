@@ -1,0 +1,11 @@
+{
+  "main": "../bundles/mtxTooltip.umd.js",
+  "module": "../fesm2015/mtxTooltip.js",
+  "es2015": "../fesm2015/mtxTooltip.js",
+  "esm2015": "../esm2015/tooltip/mtxTooltip.js",
+  "fesm2015": "../fesm2015/mtxTooltip.js",
+  "typings": "mtxTooltip.d.ts",
+  "metadata": "mtxTooltip.metadata.json",
+  "sideEffects": false,
+  "name": "@ng-matero/extensions/tooltip"
+}

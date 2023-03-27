@@ -1,0 +1,32 @@
+import { EventEmitter, TemplateRef } from '@angular/core';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
+import { ThemePalette } from '@angular/material/core';
+import { MtxGridButtonType, MtxGridColumnSelectionItem } from './grid.interface';
+export declare class MtxGridColumnMenuComponent {
+    menuPanel: MatMenu;
+    menuTrigger: MatMenuTrigger;
+    columns: MtxGridColumnSelectionItem[];
+    selectable: boolean;
+    selectableChecked: 'show' | 'hide';
+    sortable: boolean;
+    dndSortable: boolean;
+    get buttonText(): string;
+    set buttonText(value: string);
+    private _buttonText;
+    buttonType: MtxGridButtonType;
+    buttonColor: ThemePalette;
+    buttonClass: string;
+    buttonIcon: string;
+    showHeader: boolean;
+    headerText: string;
+    headerTemplate: TemplateRef<any>;
+    showFooter: boolean;
+    footerText: string;
+    footerTemplate: TemplateRef<any>;
+    selectionChange: EventEmitter<MtxGridColumnSelectionItem[]>;
+    sortChange: EventEmitter<MtxGridColumnSelectionItem[]>;
+    _handleDroped(event: CdkDragDrop<string[]>): void;
+    _handleSelection(e: MatCheckboxChange): void;
+}

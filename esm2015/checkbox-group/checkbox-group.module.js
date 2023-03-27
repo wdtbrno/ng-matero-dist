@@ -1,0 +1,16 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MtxUtilsModule } from '@ng-matero/extensions/utils';
+import { MtxCheckboxGroupComponent } from './checkbox-group.component';
+export class MtxCheckboxGroupModule {
+}
+MtxCheckboxGroupModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [CommonModule, FormsModule, MatCheckboxModule, MtxUtilsModule],
+                exports: [MtxCheckboxGroupComponent],
+                declarations: [MtxCheckboxGroupComponent],
+            },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hlY2tib3gtZ3JvdXAubW9kdWxlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vcHJvamVjdHMvZXh0ZW5zaW9ucy9jaGVja2JveC1ncm91cC9jaGVja2JveC1ncm91cC5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN6QyxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFDL0MsT0FBTyxFQUFFLFdBQVcsRUFBRSxNQUFNLGdCQUFnQixDQUFDO0FBQzdDLE9BQU8sRUFBRSxpQkFBaUIsRUFBRSxNQUFNLDRCQUE0QixDQUFDO0FBRS9ELE9BQU8sRUFBRSxjQUFjLEVBQUUsTUFBTSw2QkFBNkIsQ0FBQztBQUM3RCxPQUFPLEVBQUUseUJBQXlCLEVBQUUsTUFBTSw0QkFBNEIsQ0FBQztBQU92RSxNQUFNLE9BQU8sc0JBQXNCOzs7WUFMbEMsUUFBUSxTQUFDO2dCQUNSLE9BQU8sRUFBRSxDQUFDLFlBQVksRUFBRSxXQUFXLEVBQUUsaUJBQWlCLEVBQUUsY0FBYyxDQUFDO2dCQUN2RSxPQUFPLEVBQUUsQ0FBQyx5QkFBeUIsQ0FBQztnQkFDcEMsWUFBWSxFQUFFLENBQUMseUJBQXlCLENBQUM7YUFDMUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBOZ01vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgQ29tbW9uTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29tbW9uJztcbmltcG9ydCB7IEZvcm1zTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvZm9ybXMnO1xuaW1wb3J0IHsgTWF0Q2hlY2tib3hNb2R1bGUgfSBmcm9tICdAYW5ndWxhci9tYXRlcmlhbC9jaGVja2JveCc7XG5cbmltcG9ydCB7IE10eFV0aWxzTW9kdWxlIH0gZnJvbSAnQG5nLW1hdGVyby9leHRlbnNpb25zL3V0aWxzJztcbmltcG9ydCB7IE10eENoZWNrYm94R3JvdXBDb21wb25lbnQgfSBmcm9tICcuL2NoZWNrYm94LWdyb3VwLmNvbXBvbmVudCc7XG5cbkBOZ01vZHVsZSh7XG4gIGltcG9ydHM6IFtDb21tb25Nb2R1bGUsIEZvcm1zTW9kdWxlLCBNYXRDaGVja2JveE1vZHVsZSwgTXR4VXRpbHNNb2R1bGVdLFxuICBleHBvcnRzOiBbTXR4Q2hlY2tib3hHcm91cENvbXBvbmVudF0sXG4gIGRlY2xhcmF0aW9uczogW010eENoZWNrYm94R3JvdXBDb21wb25lbnRdLFxufSlcbmV4cG9ydCBjbGFzcyBNdHhDaGVja2JveEdyb3VwTW9kdWxlIHt9XG4iXX0=

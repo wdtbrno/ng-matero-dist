@@ -1,0 +1,57 @@
+$progress-height: 1rem !default;
+$progress-fill-animation-timing: 1s linear infinite !default;
+
+@mixin gradient-striped($color: rgba(white, .15), $angle: 45deg) {
+  background-image:
+    linear-gradient(
+      $angle,
+      $color 25%,
+      transparent 25%,
+      transparent 50%,
+      $color 50%,
+      $color 75%,
+      transparent 75%,
+      transparent
+    );
+}
+
+.mtx-progress {
+  display: flex;
+  height: $progress-height;
+  margin: 8px 0;
+  overflow: hidden;
+  font-size: .75rem;
+  border-radius: .25rem;
+}
+
+.mtx-progress-fill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  transition: width .6s ease;
+}
+
+.mtx-progress-fill-striped {
+  @include gradient-striped();
+
+  background-size: $progress-height $progress-height;
+}
+
+.mtx-progress-fill-animated {
+  animation: mtx-progress-fill-stripes $progress-fill-animation-timing;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes mtx-progress-fill-stripes {
+  from {
+    background-position: $progress-height 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "main": "../bundles/mtxButton.umd.js",
+  "module": "../fesm2015/mtxButton.js",
+  "es2015": "../fesm2015/mtxButton.js",
+  "esm2015": "../esm2015/button/mtxButton.js",
+  "fesm2015": "../fesm2015/mtxButton.js",
+  "typings": "mtxButton.d.ts",
+  "metadata": "mtxButton.metadata.json",
+  "sideEffects": false,
+  "name": "@ng-matero/extensions/button"
+}

@@ -1,0 +1,41 @@
+@import '~@angular/material/theming';
+
+$mtx-tooltip-target-height: 22px;
+$mtx-tooltip-font-size: 12px;
+$mtx-tooltip-vertical-padding: ($mtx-tooltip-target-height - $mtx-tooltip-font-size) / 2;
+
+$mtx-tooltip-handset-target-height: 30px;
+$mtx-tooltip-handset-font-size: 14px;
+$mtx-tooltip-handset-vertical-padding:
+    ($mtx-tooltip-handset-target-height - $mtx-tooltip-handset-font-size) / 2;
+
+@mixin mtx-tooltip-color($config-or-theme) {
+  $config: mat-get-color-config($config-or-theme);
+  $background: map-get($config, background);
+
+  .mtx-tooltip {
+    background: mat-color($background, tooltip, .9);
+  }
+}
+
+@mixin mtx-tooltip-typography($config-or-theme) {
+  .mtx-tooltip {
+    padding-top: $mtx-tooltip-vertical-padding;
+    padding-bottom: $mtx-tooltip-vertical-padding;
+    font-size: $mtx-tooltip-font-size;
+  }
+
+  .mtx-tooltip-handset {
+    padding-top: $mtx-tooltip-handset-vertical-padding;
+    padding-bottom: $mtx-tooltip-handset-vertical-padding;
+    font-size: $mtx-tooltip-handset-font-size;
+  }
+}
+
+@mixin mtx-tooltip-theme($theme) {
+  $color: mat-get-color-config($theme);
+  $typography: mat-get-typography-config($theme);
+
+  @include mtx-tooltip-color($color);
+  @include mtx-tooltip-typography($typography);
+}
