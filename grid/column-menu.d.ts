@@ -1,0 +1,38 @@
+import { EventEmitter, TemplateRef } from '@angular/core';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
+import { ThemePalette } from '@angular/material/core';
+import { MtxGridButtonType, MtxGridColumn, MtxGridColumnPinOption, MtxGridColumnPinValue } from './interfaces';
+import * as i0 from "@angular/core";
+export declare class MtxGridColumnMenu {
+    menuPanel: MatMenu;
+    menuTrigger: MatMenuTrigger;
+    columns: MtxGridColumn[];
+    selectable: boolean;
+    selectableChecked: 'show' | 'hide';
+    sortable: boolean;
+    pinnable: boolean;
+    get buttonText(): string;
+    set buttonText(value: string);
+    private _buttonText;
+    buttonType: MtxGridButtonType;
+    buttonColor: ThemePalette;
+    buttonClass: string;
+    buttonIcon: string;
+    showHeader: boolean;
+    headerText: string;
+    headerTemplate: TemplateRef<any>;
+    showFooter: boolean;
+    footerText: string;
+    footerTemplate: TemplateRef<any>;
+    columnChange: EventEmitter<MtxGridColumn[]>;
+    get pinOptions(): MtxGridColumnPinOption[];
+    set pinOptions(value: MtxGridColumnPinOption[]);
+    private _pinOptions;
+    _handleDroped(e: CdkDragDrop<string[]>): void;
+    _handleChecked(e: MatCheckboxChange): void;
+    _handlePinSelect(col: MtxGridColumn, val: MtxGridColumnPinValue): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MtxGridColumnMenu, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MtxGridColumnMenu, "mtx-grid-column-menu", ["mtxGridColumnMenu"], { "columns": "columns"; "selectable": "selectable"; "selectableChecked": "selectableChecked"; "sortable": "sortable"; "pinnable": "pinnable"; "buttonText": "buttonText"; "buttonType": "buttonType"; "buttonColor": "buttonColor"; "buttonClass": "buttonClass"; "buttonIcon": "buttonIcon"; "showHeader": "showHeader"; "headerText": "headerText"; "headerTemplate": "headerTemplate"; "showFooter": "showFooter"; "footerText": "footerText"; "footerTemplate": "footerTemplate"; "pinOptions": "pinOptions"; }, { "columnChange": "columnChange"; }, never, never, false, never>;
+}

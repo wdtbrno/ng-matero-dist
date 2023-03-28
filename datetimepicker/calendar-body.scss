@@ -1,0 +1,59 @@
+@use 'sass:math';
+@use '../core/style/private';
+
+$calendar-body-label-padding-start: 5% !default;
+$calendar-body-label-side-padding: math.div(33%, 7) !default;
+$calendar-body-cell-min-size: 32px !default;
+$calendar-body-cell-size: math.div(100%, 7) !default;
+$calendar-body-cell-padding: math.div($calendar-body-cell-size, 2) !default;
+$calendar-body-cell-content-margin: 5% !default;
+$calendar-body-cell-content-border-width: 1px !default;
+$calendar-body-cell-radius: 999px !default;
+
+$calendar-body-min-size: 7 * $calendar-body-cell-min-size !default;
+$calendar-body-cell-content-size: 100% - $calendar-body-cell-content-margin * 2 !default;
+
+.mtx-calendar-body {
+  min-width: $calendar-body-min-size;
+}
+
+.mtx-calendar-body-label {
+  height: 0;
+  line-height: 0;
+  text-align: left;
+  padding: $calendar-body-cell-padding $calendar-body-label-side-padding;
+
+  [dir='rtl'] & {
+    text-align: right;
+  }
+}
+
+.mtx-calendar-body-cell {
+  position: relative;
+  width: $calendar-body-cell-size;
+  height: 0;
+  line-height: 0;
+  padding: $calendar-body-cell-padding 0;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.mtx-calendar-body-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.mtx-calendar-body-cell-content {
+  position: absolute;
+  top: $calendar-body-cell-content-margin;
+  left: $calendar-body-cell-content-margin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: $calendar-body-cell-content-size;
+  height: $calendar-body-cell-content-size;
+  border: $calendar-body-cell-content-border-width solid transparent;
+  border-radius: $calendar-body-cell-radius;
+}

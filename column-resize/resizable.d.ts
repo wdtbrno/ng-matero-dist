@@ -8,6 +8,7 @@ import { ColumnResize } from './column-resize';
 import { ColumnResizeNotifierSource } from './column-resize-notifier';
 import { HeaderRowEventDispatcher } from './event-dispatcher';
 import { ResizeStrategy } from './resize-strategy';
+import * as i0 from "@angular/core";
 /**
  * Base class for Resizable directives which are applied to column headers to make those columns
  * resizable.
@@ -56,4 +57,6 @@ export declare abstract class Resizable<HandleComponent extends ResizeOverlayHan
     private _applyMinWidthPx;
     private _applyMaxWidthPx;
     private _appendInlineHandle;
+    static ɵfac: i0.ɵɵFactoryDeclaration<Resizable<any>, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<Resizable<any>, never, never, {}, {}, never, never, false, never>;
 }

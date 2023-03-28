@@ -1,6 +1,6 @@
 import { AnimationTriggerMetadata } from '@angular/animations';
 /**
- * Below are all the animations for the md-popover component.
+ * Below are all the animations for the mtx-popover component.
  * Animation duration and timing values are based on AngularJS Material.
  */
 /**

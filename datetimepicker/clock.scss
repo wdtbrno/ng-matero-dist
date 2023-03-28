@@ -1,0 +1,91 @@
+$clock-min-size: 224px !default;
+$clock-margin: 12px !default;
+$clock-cell-size: 14.1666% !default;
+
+.mtx-clock {
+  position: relative;
+  display: block;
+  min-width: $clock-min-size;
+  margin: $clock-margin;
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: none;
+}
+
+.mtx-clock-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  border-radius: 50%;
+}
+
+.mtx-clock-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2%;
+  height: 2%;
+  margin: -1%;
+  border-radius: 50%;
+}
+
+.mtx-clock-hand {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  margin: 0 auto;
+  transform-origin: bottom;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+}
+
+.mtx-clock-hours,
+.mtx-clock-minutes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 350ms;
+  transform: scale(1.2);
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
+.mtx-clock-minutes {
+  transform: scale(.8);
+}
+
+.mtx-clock-cell {
+  position: absolute;
+  display: flex;
+  width: $clock-cell-size;
+  height: $clock-cell-size;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 50%;
+  align-items: center;
+  cursor: pointer;
+
+  &.mtx-clock-cell-disabled {
+    pointer-events: none;
+  }
+}

@@ -1,11 +1,36 @@
-@import '~@angular/material/theming';
+@use 'sass:map';
+@use '../core/theming/theming';
 
-@mixin mtx-loader-theme($theme) {
-  $is-dark-theme: map-get($theme, is-dark);
-  $foreground: map-get($theme, foreground);
-  $background: map-get($theme, background);
+@mixin color($config-or-theme) {
+  $config: theming.get-color-config($config-or-theme);
+  $is-dark-theme: map.get($config, is-dark);
+  $foreground: map.get($config, foreground);
+  $background: map.get($config, background);
 
   .mtx-loader-backdrop {
-    background-color: rgba(mat-color($background, background), .75);
+    background-color: theming.get-color-from-palette($background, background, .75);
+  }
+}
+
+@mixin typography($config-or-theme) {}
+
+@mixin density($config-or-theme) {}
+
+@mixin theme($theme-or-color-config) {
+  $theme: theming.private-legacy-get-theme($theme-or-color-config);
+  @include theming.private-check-duplicate-theme-styles($theme, 'mtx-loader') {
+    $color: theming.get-color-config($theme);
+    $density: theming.get-density-config($theme);
+    $typography: theming.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
+    }
   }
 }

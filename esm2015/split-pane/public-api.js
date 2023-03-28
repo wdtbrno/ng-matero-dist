@@ -1,6 +1,0 @@
-export * from './interface';
-export * from './utils';
-export * from './split.module';
-export * from './split.component';
-export * from './split-pane.directive';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3Byb2plY3RzL2V4dGVuc2lvbnMvc3BsaXQtcGFuZS9wdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQWMsYUFBYSxDQUFDO0FBQzVCLGNBQWMsU0FBUyxDQUFDO0FBQ3hCLGNBQWMsZ0JBQWdCLENBQUM7QUFDL0IsY0FBYyxtQkFBbUIsQ0FBQztBQUNsQyxjQUFjLHdCQUF3QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnLi9pbnRlcmZhY2UnO1xuZXhwb3J0ICogZnJvbSAnLi91dGlscyc7XG5leHBvcnQgKiBmcm9tICcuL3NwbGl0Lm1vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL3NwbGl0LmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL3NwbGl0LXBhbmUuZGlyZWN0aXZlJztcbiJdfQ==

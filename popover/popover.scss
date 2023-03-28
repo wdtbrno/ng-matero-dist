@@ -1,10 +1,12 @@
 $arrow-size: 1em; // 16px default
 
 .mtx-popover-panel {
+  position: relative;
   max-height: calc(100vh - 48px);
   padding: 8px;
   border-radius: 4px;
   font-size: 16px; // It can change the arrow size
+  outline: 0;
 
   &[class*='mtx-popover-below'] {
     margin-top: calc(#{$arrow-size * .5} + 2px);

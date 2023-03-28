@@ -8,15 +8,16 @@ import { Platform } from '@angular/cdk/platform';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import { ChangeDetectorRef, ElementRef, InjectionToken, NgZone, OnDestroy, ViewContainerRef, AfterViewInit, TemplateRef } from '@angular/core';
 import { Observable } from 'rxjs';
+import * as i0 from "@angular/core";
 /** Possible positions for a tooltip. */
-export declare type TooltipPosition = 'left' | 'right' | 'above' | 'below' | 'before' | 'after';
+export type TooltipPosition = 'left' | 'right' | 'above' | 'below' | 'before' | 'after';
 /**
  * Options for how the tooltip trigger should handle touch gestures.
  * See `MtxTooltip.touchGestures` for more information.
  */
-export declare type TooltipTouchGestures = 'auto' | 'on' | 'off';
+export type TooltipTouchGestures = 'auto' | 'on' | 'off';
 /** Possible visibility states of a tooltip. */
-export declare type TooltipVisibility = 'initial' | 'visible' | 'hidden';
+export type TooltipVisibility = 'initial' | 'visible' | 'hidden';
 /** Time in ms to throttle repositioning after scroll events. */
 export declare const SCROLL_THROTTLE_MS = 20;
 /** CSS class that will be attached to the overlay panel. */
@@ -170,6 +171,8 @@ export declare class MtxTooltip implements OnDestroy, AfterViewInit {
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_hideDelay: NumberInput;
     static ngAcceptInputType_showDelay: NumberInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MtxTooltip, [null, null, null, null, null, null, null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MtxTooltip, "[mtxTooltip]", ["mtxTooltip"], { "position": "mtxTooltipPosition"; "disabled": "mtxTooltipDisabled"; "showDelay": "mtxTooltipShowDelay"; "hideDelay": "mtxTooltipHideDelay"; "touchGestures": "mtxTooltipTouchGestures"; "message": "mtxTooltip"; "tooltipClass": "mtxTooltipClass"; }, {}, never, never, false, never>;
 }
 /**
  * Internal component that wraps the tooltip's content.
@@ -196,7 +199,6 @@ export declare class TooltipComponent implements OnDestroy {
     private readonly _onHide;
     /** Stream that emits whether the user has a handset-sized display.  */
     _isHandset: Observable<BreakpointState>;
-    _isTemplateRef(obj: any): boolean;
     constructor(_changeDetectorRef: ChangeDetectorRef, _breakpointObserver: BreakpointObserver);
     /**
      * Shows the tooltip with an animation originating from the provided origin
@@ -227,4 +229,6 @@ export declare class TooltipComponent implements OnDestroy {
      * can be problematic in components with OnPush change detection.
      */
     _markForCheck(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<TooltipComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<TooltipComponent, "mtx-tooltip-component", never, {}, {}, never, never, false, never>;
 }

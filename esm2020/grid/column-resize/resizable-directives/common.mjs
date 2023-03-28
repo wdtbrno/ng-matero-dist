@@ -1,0 +1,29 @@
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { Resizable } from '@ng-matero/extensions/column-resize';
+import { MatColumnResizeOverlayHandle } from '../overlay-handle';
+export class AbstractMatResizable extends Resizable {
+    constructor() {
+        super(...arguments);
+        this.minWidthPxInternal = 32;
+    }
+    getInlineHandleCssClassName() {
+        return 'mat-resizable-handle';
+    }
+    getOverlayHandleComponentType() {
+        return MatColumnResizeOverlayHandle;
+    }
+}
+export const RESIZABLE_HOST_BINDINGS = {
+    class: 'mat-resizable',
+};
+export const RESIZABLE_INPUTS = [
+    'minWidthPx: matResizableMinWidthPx',
+    'maxWidthPx: matResizableMaxWidthPx',
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29tbW9uLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvZXh0ZW5zaW9ucy9ncmlkL2NvbHVtbi1yZXNpemUvcmVzaXphYmxlLWRpcmVjdGl2ZXMvY29tbW9uLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUdILE9BQU8sRUFBRSxTQUFTLEVBQUUsTUFBTSxxQ0FBcUMsQ0FBQztBQUNoRSxPQUFPLEVBQUUsNEJBQTRCLEVBQUUsTUFBTSxtQkFBbUIsQ0FBQztBQUVqRSxNQUFNLE9BQWdCLG9CQUFxQixTQUFRLFNBQXVDO0lBQTFGOztRQUNFLHVCQUFrQixHQUFHLEVBQUUsQ0FBQztJQVMxQixDQUFDO0lBUFcsMkJBQTJCO1FBQ25DLE9BQU8sc0JBQXNCLENBQUM7SUFDaEMsQ0FBQztJQUVTLDZCQUE2QjtRQUNyQyxPQUFPLDRCQUE0QixDQUFDO0lBQ3RDLENBQUM7Q0FDRjtBQUVELE1BQU0sQ0FBQyxNQUFNLHVCQUF1QixHQUFHO0lBQ3JDLEtBQUssRUFBRSxlQUFlO0NBQ3ZCLENBQUM7QUFFRixNQUFNLENBQUMsTUFBTSxnQkFBZ0IsR0FBRztJQUM5QixvQ0FBb0M7SUFDcEMsb0NBQW9DO0NBQ3JDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgR29vZ2xlIExMQyBBbGwgUmlnaHRzIFJlc2VydmVkLlxuICpcbiAqIFVzZSBvZiB0aGlzIHNvdXJjZSBjb2RlIGlzIGdvdmVybmVkIGJ5IGFuIE1JVC1zdHlsZSBsaWNlbnNlIHRoYXQgY2FuIGJlXG4gKiBmb3VuZCBpbiB0aGUgTElDRU5TRSBmaWxlIGF0IGh0dHBzOi8vYW5ndWxhci5pby9saWNlbnNlXG4gKi9cblxuaW1wb3J0IHsgVHlwZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgUmVzaXphYmxlIH0gZnJvbSAnQG5nLW1hdGVyby9leHRlbnNpb25zL2NvbHVtbi1yZXNpemUnO1xuaW1wb3J0IHsgTWF0Q29sdW1uUmVzaXplT3ZlcmxheUhhbmRsZSB9IGZyb20gJy4uL292ZXJsYXktaGFuZGxlJztcblxuZXhwb3J0IGFic3RyYWN0IGNsYXNzIEFic3RyYWN0TWF0UmVzaXphYmxlIGV4dGVuZHMgUmVzaXphYmxlPE1hdENvbHVtblJlc2l6ZU92ZXJsYXlIYW5kbGU+IHtcbiAgbWluV2lkdGhQeEludGVybmFsID0gMzI7XG5cbiAgcHJvdGVjdGVkIGdldElubGluZUhhbmRsZUNzc0NsYXNzTmFtZSgpOiBzdHJpbmcge1xuICAgIHJldHVybiAnbWF0LXJlc2l6YWJsZS1oYW5kbGUnO1xuICB9XG5cbiAgcHJvdGVjdGVkIGdldE92ZXJsYXlIYW5kbGVDb21wb25lbnRUeXBlKCk6IFR5cGU8TWF0Q29sdW1uUmVzaXplT3ZlcmxheUhhbmRsZT4ge1xuICAgIHJldHVybiBNYXRDb2x1bW5SZXNpemVPdmVybGF5SGFuZGxlO1xuICB9XG59XG5cbmV4cG9ydCBjb25zdCBSRVNJWkFCTEVfSE9TVF9CSU5ESU5HUyA9IHtcbiAgY2xhc3M6ICdtYXQtcmVzaXphYmxlJyxcbn07XG5cbmV4cG9ydCBjb25zdCBSRVNJWkFCTEVfSU5QVVRTID0gW1xuICAnbWluV2lkdGhQeDogbWF0UmVzaXphYmxlTWluV2lkdGhQeCcsXG4gICdtYXhXaWR0aFB4OiBtYXRSZXNpemFibGVNYXhXaWR0aFB4Jyxcbl07XG4iXX0=

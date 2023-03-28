@@ -1,0 +1,32 @@
+@use '@angular/cdk' as cdk;
+
+.mtx-drawer-container {
+  display: block;
+  outline: 0;
+
+  @include cdk.high-contrast(active, off) {
+    outline: 1px solid;
+  }
+}
+
+.mtx-drawer-content-wrapper {
+  box-sizing: border-box;
+  padding: 8px 16px;
+  overflow: auto;
+}
+
+.mtx-drawer-right {
+  transform: translateX(100%);
+}
+
+.mtx-drawer-left {
+  transform: translateX(-100%);
+}
+
+.mtx-drawer-bottom {
+  transform: translateY(100%);
+}
+
+.mtx-drawer-top {
+  transform: translateY(-100%);
+}

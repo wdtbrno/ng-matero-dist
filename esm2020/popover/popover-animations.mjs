@@ -1,0 +1,25 @@
+import { trigger, state, style, animate, transition, } from '@angular/animations';
+/**
+ * Below are all the animations for the mtx-popover component.
+ * Animation duration and timing values are based on AngularJS Material.
+ */
+/**
+ * This animation controls the popover panel's entry and exit from the page.
+ *
+ * When the popover panel is added to the DOM, it scales in and fades in its border.
+ *
+ * When the popover panel is removed from the DOM, it simply fades out after a brief
+ * delay to display the ripple.
+ */
+export const transformPopover = trigger('transformPopover', [
+    state('void', style({
+        opacity: 0,
+        transform: 'scale(0.8)',
+    })),
+    transition('void => enter', animate('120ms cubic-bezier(0, 0, 0.2, 1)', style({
+        opacity: 1,
+        transform: 'scale(1)',
+    }))),
+    transition('* => void', animate('100ms 25ms linear', style({ opacity: 0 }))),
+]);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicG9wb3Zlci1hbmltYXRpb25zLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vcHJvamVjdHMvZXh0ZW5zaW9ucy9wb3BvdmVyL3BvcG92ZXItYW5pbWF0aW9ucy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQ0wsT0FBTyxFQUNQLEtBQUssRUFDTCxLQUFLLEVBQ0wsT0FBTyxFQUNQLFVBQVUsR0FFWCxNQUFNLHFCQUFxQixDQUFDO0FBRTdCOzs7R0FHRztBQUVIOzs7Ozs7O0dBT0c7QUFFSCxNQUFNLENBQUMsTUFBTSxnQkFBZ0IsR0FBNkIsT0FBTyxDQUFDLGtCQUFrQixFQUFFO0lBQ3BGLEtBQUssQ0FDSCxNQUFNLEVBQ04sS0FBSyxDQUFDO1FBQ0osT0FBTyxFQUFFLENBQUM7UUFDVixTQUFTLEVBQUUsWUFBWTtLQUN4QixDQUFDLENBQ0g7SUFDRCxVQUFVLENBQ1IsZUFBZSxFQUNmLE9BQU8sQ0FDTCxrQ0FBa0MsRUFDbEMsS0FBSyxDQUFDO1FBQ0osT0FBTyxFQUFFLENBQUM7UUFDVixTQUFTLEVBQUUsVUFBVTtLQUN0QixDQUFDLENBQ0gsQ0FDRjtJQUNELFVBQVUsQ0FBQyxXQUFXLEVBQUUsT0FBTyxDQUFDLG1CQUFtQixFQUFFLEtBQUssQ0FBQyxFQUFFLE9BQU8sRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7Q0FDN0UsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtcbiAgdHJpZ2dlcixcbiAgc3RhdGUsXG4gIHN0eWxlLFxuICBhbmltYXRlLFxuICB0cmFuc2l0aW9uLFxuICBBbmltYXRpb25UcmlnZ2VyTWV0YWRhdGEsXG59IGZyb20gJ0Bhbmd1bGFyL2FuaW1hdGlvbnMnO1xuXG4vKipcbiAqIEJlbG93IGFyZSBhbGwgdGhlIGFuaW1hdGlvbnMgZm9yIHRoZSBtdHgtcG9wb3ZlciBjb21wb25lbnQuXG4gKiBBbmltYXRpb24gZHVyYXRpb24gYW5kIHRpbWluZyB2YWx1ZXMgYXJlIGJhc2VkIG9uIEFuZ3VsYXJKUyBNYXRlcmlhbC5cbiAqL1xuXG4vKipcbiAqIFRoaXMgYW5pbWF0aW9uIGNvbnRyb2xzIHRoZSBwb3BvdmVyIHBhbmVsJ3MgZW50cnkgYW5kIGV4aXQgZnJvbSB0aGUgcGFnZS5cbiAqXG4gKiBXaGVuIHRoZSBwb3BvdmVyIHBhbmVsIGlzIGFkZGVkIHRvIHRoZSBET00sIGl0IHNjYWxlcyBpbiBhbmQgZmFkZXMgaW4gaXRzIGJvcmRlci5cbiAqXG4gKiBXaGVuIHRoZSBwb3BvdmVyIHBhbmVsIGlzIHJlbW92ZWQgZnJvbSB0aGUgRE9NLCBpdCBzaW1wbHkgZmFkZXMgb3V0IGFmdGVyIGEgYnJpZWZcbiAqIGRlbGF5IHRvIGRpc3BsYXkgdGhlIHJpcHBsZS5cbiAqL1xuXG5leHBvcnQgY29uc3QgdHJhbnNmb3JtUG9wb3ZlcjogQW5pbWF0aW9uVHJpZ2dlck1ldGFkYXRhID0gdHJpZ2dlcigndHJhbnNmb3JtUG9wb3ZlcicsIFtcbiAgc3RhdGUoXG4gICAgJ3ZvaWQnLFxuICAgIHN0eWxlKHtcbiAgICAgIG9wYWNpdHk6IDAsXG4gICAgICB0cmFuc2Zvcm06ICdzY2FsZSgwLjgpJyxcbiAgICB9KVxuICApLFxuICB0cmFuc2l0aW9uKFxuICAgICd2b2lkID0+IGVudGVyJyxcbiAgICBhbmltYXRlKFxuICAgICAgJzEyMG1zIGN1YmljLWJlemllcigwLCAwLCAwLjIsIDEpJyxcbiAgICAgIHN0eWxlKHtcbiAgICAgICAgb3BhY2l0eTogMSxcbiAgICAgICAgdHJhbnNmb3JtOiAnc2NhbGUoMSknLFxuICAgICAgfSlcbiAgICApXG4gICksXG4gIHRyYW5zaXRpb24oJyogPT4gdm9pZCcsIGFuaW1hdGUoJzEwMG1zIDI1bXMgbGluZWFyJywgc3R5bGUoeyBvcGFjaXR5OiAwIH0pKSksXG5dKTtcbiJdfQ==

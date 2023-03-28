@@ -1,22 +1,25 @@
-@import '~@angular/material/theming';
+@use 'sass:map';
+@use '../core/theming/theming';
+@use './select-density';
 
-@mixin mtx-select-theme($theme) {
-  $warn: map-get($theme, warn);
-  $background: map-get($theme, background);
-  $foreground: map-get($theme, foreground);
+@mixin color($config-or-theme) {
+  $config: theming.get-color-config($config-or-theme);
+  $warn: map.get($config, warn);
+  $background: map.get($config, background);
+  $foreground: map.get($config, foreground);
 
   .ng-select {
     .ng-select-container {
-      color: mat-color($foreground, text);
+      color: theming.get-color-from-palette($foreground, text);
 
       .ng-value-container {
         .ng-placeholder {
-          color: mat-color($foreground, hint-text);
+          color: theming.get-color-from-palette($foreground, hint-text);
         }
 
         .ng-input {
           > input {
-            color: mat-color($foreground, text);
+            color: theming.get-color-from-palette($foreground, text);
           }
         }
       }
@@ -24,7 +27,7 @@
 
     &.ng-select-disabled {
       .ng-value {
-        color: mat-color($foreground, hint-text);
+        color: theming.get-color-from-palette($foreground, hint-text);
       }
     }
 
@@ -32,8 +35,9 @@
       .ng-select-container {
         .ng-value-container {
           .ng-value {
-            color: mat-color($foreground, text);
-            background-color: mat-color($background, unselected-chip);
+            color: theming.get-color-from-palette($foreground, text);
+            background-color: theming.get-color-from-palette($background, unselected-chip);
+            border: 1px solid theming.get-color-from-palette($foreground, divider);
 
             &.ng-value-disabled {
               opacity: .4;
@@ -41,7 +45,7 @@
 
             .ng-value-icon {
               &:hover {
-                background-color: mat-color($foreground, divider);
+                background-color: theming.get-color-from-palette($foreground, divider);
               }
             }
           }
@@ -50,91 +54,116 @@
     }
 
     .ng-clear-wrapper {
-      color: mat-color($foreground, secondary-text);
+      color: theming.get-color-from-palette($foreground, secondary-text);
 
       &:hover .ng-clear {
-        color: mat-color($warn);
+        color: theming.get-color-from-palette($warn);
       }
     }
 
     .ng-arrow-wrapper .ng-arrow {
-      border-color: mat-color($foreground, secondary-text) transparent transparent;
+      border-color: theming.get-color-from-palette($foreground, secondary-text) transparent transparent;
     }
 
     &.ng-select-invalid {
       .ng-arrow-wrapper .ng-arrow {
-        border-color: mat-color($warn) transparent transparent;
+        border-color: theming.get-color-from-palette($warn) transparent transparent;
       }
     }
 
     &.ng-select-opened {
       .ng-arrow-wrapper .ng-arrow {
-        border-color: transparent transparent mat-color($foreground, secondary-text);
+        border-color: transparent transparent theming.get-color-from-palette($foreground, secondary-text);
       }
     }
 
     &.ng-select-opened.ng-select-invalid {
       .ng-arrow-wrapper .ng-arrow {
-        border-color: transparent transparent mat-color($warn);
+        border-color: transparent transparent theming.get-color-from-palette($warn);
       }
     }
   }
 
   .ng-dropdown-panel {
-    background-color: mat-color($background, card);
+    background-color: theming.get-color-from-palette($background, card);
 
     &.multiple {
       .ng-option {
         &.selected {
-          background: mat-color($foreground, divider);
+          background: theming.get-color-from-palette($foreground, divider);
         }
 
         &.marked {
-          background: mat-color($background, hover);
+          background: theming.get-color-from-palette($background, hover);
         }
       }
     }
 
     .ng-dropdown-header {
-      border-bottom: 1px solid mat-color($foreground, divider);
+      border-bottom: 1px solid theming.get-color-from-palette($foreground, divider);
     }
 
     .ng-dropdown-footer {
-      border-top: 1px solid mat-color($foreground, divider);
+      border-top: 1px solid theming.get-color-from-palette($foreground, divider);
     }
 
     .ng-dropdown-panel-items {
       .ng-optgroup {
-        color: mat-color($foreground, secondary-text);
+        color: theming.get-color-from-palette($foreground, secondary-text);
 
         &.ng-option-marked {
-          background: mat-color($background, hover);
+          background: theming.get-color-from-palette($background, hover);
         }
 
         &.ng-option-selected {
-          background: mat-color($foreground, divider);
+          background: theming.get-color-from-palette($foreground, divider);
         }
       }
 
       .ng-option {
-        color: mat-color($foreground, text);
+        color: theming.get-color-from-palette($foreground, text);
 
         &.ng-option-marked {
-          background: mat-color($background, hover);
+          background: theming.get-color-from-palette($background, hover);
         }
 
         &.ng-option-selected {
-          background: mat-color($foreground, divider);
+          background: theming.get-color-from-palette($foreground, divider);
         }
 
         &.ng-option-disabled {
-          color: mat-color($foreground, hint-text);
+          color: theming.get-color-from-palette($foreground, hint-text);
         }
 
         .ng-tag-label {
-          color: mat-color($foreground, hint-text);
+          color: theming.get-color-from-palette($foreground, hint-text);
         }
       }
+    }
+  }
+}
+
+@mixin typography($config-or-theme) {}
+
+@mixin density($config-or-theme) {
+  @include select-density.private-select-density($config-or-theme);
+}
+
+@mixin theme($theme-or-color-config) {
+  $theme: theming.private-legacy-get-theme($theme-or-color-config);
+  @include theming.private-check-duplicate-theme-styles($theme, 'mtx-select') {
+    $color: theming.get-color-config($theme);
+    $density: theming.get-density-config($theme);
+    $typography: theming.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
     }
   }
 }

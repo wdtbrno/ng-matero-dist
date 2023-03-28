@@ -1,0 +1,127 @@
+@use 'sass:map';
+@use '../../core/style/variables';
+@use '../../core/style/vendor-prefixes';
+@use '../../core/theming/theming';
+
+@mixin color($config-or-theme) {
+  $config: theming.get-color-config($config-or-theme);
+  $primary: map.get($config, primary);
+  $foreground: map.get($config, foreground);
+
+  $non-resizable-hover-divider: theming.get-color-from-palette($foreground, divider);
+  $resizable-hover-divider: theming.get-color-from-palette($primary, 200);
+  $resizable-active-divider: theming.get-color-from-palette($primary, 500);
+
+  // Required for resizing to work properly.
+  .mat-column-resize-table.cdk-column-resize-with-resized-column {
+    table-layout: fixed;
+  }
+
+  .mat-column-resize-flex {
+    .mat-mdc-header-cell,
+    .mat-mdc-cell {
+      box-sizing: border-box;
+      min-width: 32px;
+    }
+  }
+
+  .mat-mdc-header-cell {
+    position: relative;
+  }
+
+  .mat-resizable {
+    box-sizing: border-box;
+  }
+
+  .mat-mdc-header-cell:not(.mat-resizable)::after,
+  .mat-resizable-handle {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    width: 1px;
+    background: transparent;
+    transition:
+      background variables.$swift-ease-in-duration
+      variables.$swift-ease-in-timing-function;
+  }
+
+  .mat-mdc-header-cell:not(.mat-resizable)::after {
+    content: '';
+  }
+
+  [dir='rtl'] .mat-mdc-header-cell:not(.mat-resizable)::after,
+  [dir='rtl'] .mat-resizable-handle {
+    left: 0;
+    right: auto;
+  }
+
+  .mat-mdc-header-row.cdk-column-resize-hover-or-active {
+    .mat-mdc-header-cell:not(.mat-resizable)::after {
+      background: $non-resizable-hover-divider;
+    }
+
+    .mat-resizable-handle {
+      background: $resizable-hover-divider;
+    }
+  }
+
+  .mat-resizable.cdk-resizable-overlay-thumb-active > .mat-resizable-handle {
+    opacity: 0;
+    transition: none;
+  }
+
+  .mat-resizable-handle:focus,
+  .mat-mdc-header-row.cdk-column-resize-hover-or-active .mat-resizable-handle:focus {
+    background: $resizable-active-divider;
+    outline: none;
+  }
+
+  .mat-column-resize-overlay-thumb {
+    background: transparent;
+    cursor: col-resize;
+    height: 100%;
+    transition:
+      background variables.$swift-ease-in-duration
+      variables.$swift-ease-in-timing-function;
+    width: 100%;
+    @include vendor-prefixes.user-select(none);
+
+    &:active {
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          transparent 7px,
+          $resizable-active-divider,
+          $resizable-active-divider 1px,
+          transparent 8px,
+          transparent
+        );
+      will-change: transform;
+    }
+  }
+}
+
+@mixin typography($config-or-theme) {}
+
+@mixin density($config-or-theme) {}
+
+@mixin theme($theme-or-color-config) {
+  $theme: theming.private-legacy-get-theme($theme-or-color-config);
+  @include theming.private-check-duplicate-theme-styles($theme, 'mat-column-resize') {
+    $color: theming.get-color-config($theme);
+    $density: theming.get-density-config($theme);
+    $typography: theming.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
+    }
+  }
+}

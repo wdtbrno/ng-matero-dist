@@ -1,7 +1,10 @@
 {
   "name": "@ng-matero/extensions",
-  "version": "11.5.1",
+  "version": "15.2.1",
   "description": "Angular Material Extensions",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "nzbin<nzb329@163.com>",
   "repository": {
     "type": "git",
@@ -12,7 +15,6 @@
     "angular-material",
     "angular-components",
     "angular-material-extensions",
-    "angular-admin",
     "ng-matero",
     "data-grid",
     "ngx-data-grid",
@@ -24,32 +26,203 @@
     "typeahead",
     "autocomplete",
     "checkbox-group",
-    "popover"
+    "popover",
+    "datetimepicker"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ng-matero/extensions/issues"
   },
   "homepage": "https://ng-matero.github.io/extensions/",
+  "exports": {
+    ".": {
+      "sass": "./_index.scss",
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/ng-matero-extensions.mjs",
+      "es2020": "./fesm2020/ng-matero-extensions.mjs",
+      "es2015": "./fesm2015/ng-matero-extensions.mjs",
+      "node": "./fesm2015/ng-matero-extensions.mjs",
+      "default": "./fesm2020/ng-matero-extensions.mjs"
+    },
+    "./theming": {
+      "sass": "./_theming.scss"
+    },
+    "./_theming": {
+      "sass": "./_theming.scss"
+    },
+    "./prebuilt-themes/indigo-pink.css": {
+      "style": "./prebuilt-themes/indigo-pink.css"
+    },
+    "./prebuilt-themes/deeppurple-amber.css": {
+      "style": "./prebuilt-themes/deeppurple-amber.css"
+    },
+    "./prebuilt-themes/pink-bluegrey.css": {
+      "style": "./prebuilt-themes/pink-bluegrey.css"
+    },
+    "./prebuilt-themes/purple-green.css": {
+      "style": "./prebuilt-themes/purple-green.css"
+    },
+    "./prebuilt-themes/*": {
+      "style": "./prebuilt-themes/*.css"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    "./alert": {
+      "types": "./alert/index.d.ts",
+      "esm2020": "./esm2020/alert/mtxAlert.mjs",
+      "es2020": "./fesm2020/mtxAlert.mjs",
+      "es2015": "./fesm2015/mtxAlert.mjs",
+      "node": "./fesm2015/mtxAlert.mjs",
+      "default": "./fesm2020/mtxAlert.mjs"
+    },
+    "./button": {
+      "types": "./button/index.d.ts",
+      "esm2020": "./esm2020/button/mtxButton.mjs",
+      "es2020": "./fesm2020/mtxButton.mjs",
+      "es2015": "./fesm2015/mtxButton.mjs",
+      "node": "./fesm2015/mtxButton.mjs",
+      "default": "./fesm2020/mtxButton.mjs"
+    },
+    "./checkbox-group": {
+      "types": "./checkbox-group/index.d.ts",
+      "esm2020": "./esm2020/checkbox-group/mtxCheckboxGroup.mjs",
+      "es2020": "./fesm2020/mtxCheckboxGroup.mjs",
+      "es2015": "./fesm2015/mtxCheckboxGroup.mjs",
+      "node": "./fesm2015/mtxCheckboxGroup.mjs",
+      "default": "./fesm2020/mtxCheckboxGroup.mjs"
+    },
+    "./colorpicker": {
+      "types": "./colorpicker/index.d.ts",
+      "esm2020": "./esm2020/colorpicker/mtxColorpicker.mjs",
+      "es2020": "./fesm2020/mtxColorpicker.mjs",
+      "es2015": "./fesm2015/mtxColorpicker.mjs",
+      "node": "./fesm2015/mtxColorpicker.mjs",
+      "default": "./fesm2020/mtxColorpicker.mjs"
+    },
+    "./column-resize": {
+      "types": "./column-resize/index.d.ts",
+      "esm2020": "./esm2020/column-resize/mtxColumnResize.mjs",
+      "es2020": "./fesm2020/mtxColumnResize.mjs",
+      "es2015": "./fesm2015/mtxColumnResize.mjs",
+      "node": "./fesm2015/mtxColumnResize.mjs",
+      "default": "./fesm2020/mtxColumnResize.mjs"
+    },
+    "./core": {
+      "types": "./core/index.d.ts",
+      "esm2020": "./esm2020/core/mtxCore.mjs",
+      "es2020": "./fesm2020/mtxCore.mjs",
+      "es2015": "./fesm2015/mtxCore.mjs",
+      "node": "./fesm2015/mtxCore.mjs",
+      "default": "./fesm2020/mtxCore.mjs"
+    },
+    "./datetimepicker": {
+      "types": "./datetimepicker/index.d.ts",
+      "esm2020": "./esm2020/datetimepicker/mtxDatetimepicker.mjs",
+      "es2020": "./fesm2020/mtxDatetimepicker.mjs",
+      "es2015": "./fesm2015/mtxDatetimepicker.mjs",
+      "node": "./fesm2015/mtxDatetimepicker.mjs",
+      "default": "./fesm2020/mtxDatetimepicker.mjs"
+    },
+    "./dialog": {
+      "types": "./dialog/index.d.ts",
+      "esm2020": "./esm2020/dialog/mtxDialog.mjs",
+      "es2020": "./fesm2020/mtxDialog.mjs",
+      "es2015": "./fesm2015/mtxDialog.mjs",
+      "node": "./fesm2015/mtxDialog.mjs",
+      "default": "./fesm2020/mtxDialog.mjs"
+    },
+    "./drawer": {
+      "types": "./drawer/index.d.ts",
+      "esm2020": "./esm2020/drawer/mtxDrawer.mjs",
+      "es2020": "./fesm2020/mtxDrawer.mjs",
+      "es2015": "./fesm2015/mtxDrawer.mjs",
+      "node": "./fesm2015/mtxDrawer.mjs",
+      "default": "./fesm2020/mtxDrawer.mjs"
+    },
+    "./grid": {
+      "types": "./grid/index.d.ts",
+      "esm2020": "./esm2020/grid/mtxGrid.mjs",
+      "es2020": "./fesm2020/mtxGrid.mjs",
+      "es2015": "./fesm2015/mtxGrid.mjs",
+      "node": "./fesm2015/mtxGrid.mjs",
+      "default": "./fesm2020/mtxGrid.mjs"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "esm2020": "./esm2020/loader/mtxLoader.mjs",
+      "es2020": "./fesm2020/mtxLoader.mjs",
+      "es2015": "./fesm2015/mtxLoader.mjs",
+      "node": "./fesm2015/mtxLoader.mjs",
+      "default": "./fesm2020/mtxLoader.mjs"
+    },
+    "./popover": {
+      "types": "./popover/index.d.ts",
+      "esm2020": "./esm2020/popover/mtxPopover.mjs",
+      "es2020": "./fesm2020/mtxPopover.mjs",
+      "es2015": "./fesm2015/mtxPopover.mjs",
+      "node": "./fesm2015/mtxPopover.mjs",
+      "default": "./fesm2020/mtxPopover.mjs"
+    },
+    "./progress": {
+      "types": "./progress/index.d.ts",
+      "esm2020": "./esm2020/progress/mtxProgress.mjs",
+      "es2020": "./fesm2020/mtxProgress.mjs",
+      "es2015": "./fesm2015/mtxProgress.mjs",
+      "node": "./fesm2015/mtxProgress.mjs",
+      "default": "./fesm2020/mtxProgress.mjs"
+    },
+    "./select": {
+      "types": "./select/index.d.ts",
+      "esm2020": "./esm2020/select/mtxSelect.mjs",
+      "es2020": "./fesm2020/mtxSelect.mjs",
+      "es2015": "./fesm2015/mtxSelect.mjs",
+      "node": "./fesm2015/mtxSelect.mjs",
+      "default": "./fesm2020/mtxSelect.mjs"
+    },
+    "./slider": {
+      "types": "./slider/index.d.ts",
+      "esm2020": "./esm2020/slider/mtxSlider.mjs",
+      "es2020": "./fesm2020/mtxSlider.mjs",
+      "es2015": "./fesm2015/mtxSlider.mjs",
+      "node": "./fesm2015/mtxSlider.mjs",
+      "default": "./fesm2020/mtxSlider.mjs"
+    },
+    "./split": {
+      "types": "./split/index.d.ts",
+      "esm2020": "./esm2020/split/mtxSplit.mjs",
+      "es2020": "./fesm2020/mtxSplit.mjs",
+      "es2015": "./fesm2015/mtxSplit.mjs",
+      "node": "./fesm2015/mtxSplit.mjs",
+      "default": "./fesm2020/mtxSplit.mjs"
+    },
+    "./tooltip": {
+      "types": "./tooltip/index.d.ts",
+      "esm2020": "./esm2020/tooltip/mtxTooltip.mjs",
+      "es2020": "./fesm2020/mtxTooltip.mjs",
+      "es2015": "./fesm2015/mtxTooltip.mjs",
+      "node": "./fesm2015/mtxTooltip.mjs",
+      "default": "./fesm2020/mtxTooltip.mjs"
+    }
+  },
   "dependencies": {
-    "@ng-select/ng-select": "^6.0.0",
-    "ngx-color": "^6.0.0",
+    "@ng-select/ng-select": "^10.0.0",
+    "ngx-color": "^8.0.0",
     "photoviewer": "^3.6.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.4.0"
   },
   "peerDependencies": {
-    "@angular/animations": ">=11.0.0",
-    "@angular/cdk": ">=11.0.0",
-    "@angular/common": ">=11.0.0",
-    "@angular/core": ">=11.0.0",
-    "@angular/material": ">=11.0.0"
+    "@angular/animations": ">=15.0.0",
+    "@angular/cdk": ">=15.0.0",
+    "@angular/common": ">=15.0.0",
+    "@angular/core": ">=15.0.0",
+    "@angular/material": ">=15.0.0"
   },
   "sideEffects": false,
-  "main": "bundles/extensions.umd.js",
-  "module": "fesm2015/extensions.js",
-  "es2015": "fesm2015/extensions.js",
-  "esm2015": "esm2015/extensions.js",
-  "fesm2015": "fesm2015/extensions.js",
-  "typings": "extensions.d.ts",
-  "metadata": "extensions.metadata.json"
+  "module": "fesm2015/ng-matero-extensions.mjs",
+  "es2020": "fesm2020/ng-matero-extensions.mjs",
+  "esm2020": "esm2020/ng-matero-extensions.mjs",
+  "fesm2020": "fesm2020/ng-matero-extensions.mjs",
+  "fesm2015": "fesm2015/ng-matero-extensions.mjs",
+  "typings": "index.d.ts"
 }

@@ -1,0 +1,215 @@
+$calendar-padding: 8px !default;
+
+// We use the same padding as the month / year label, but subtract 16px since there is padding
+// between the edge of the button and the text. This ensures that the button text lines up with
+// the month / year label text.
+$calendar-controls-side-margin: calc(33% / 7 - 16px);
+
+// Values chosen to approximate https://material.io/icons/#ic_navigate_before and
+// https://material.io/icons/#ic_navigate_next as closely as possible.
+$calendar-prev-next-icon-border-width: 2px;
+$calendar-prev-next-icon-margin: 15.5px;
+$calendar-prev-icon-transform: translateX(2px) rotate(-45deg);
+$calendar-next-icon-transform: translateX(-2px) rotate(45deg);
+
+$landscape-calendar-header-width: 144px;
+
+@mixin landscape-calendar-header {
+  .mtx-calendar {
+    display: flex;
+
+    .mtx-calendar-header {
+      width: $landscape-calendar-header-width;
+      min-width: $landscape-calendar-header-width;
+      padding: 16px 8px;
+      border-radius: 4px 0 0 4px;
+
+      [dir='rtl'] & {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+
+    .mtx-calendar-header-year + .mtx-calendar-header-date-time,
+    .mtx-calendar-header-date + .mtx-calendar-header-time {
+      margin-top: 4px;
+    }
+
+    .mtx-calendar-header-date-time {
+      font-size: 28px;
+    }
+
+    .mtx-calendar-header-time {
+      display: flex;
+      flex-direction: column;
+
+      .mtx-calendar-header-hours,
+      .mtx-calendar-header-minutes,
+      .mtx-calendar-header-ampm {
+        width: 40px;
+        text-align: center;
+      }
+    }
+
+    .mtx-calendar-header-ampm-container {
+      flex-direction: row;
+      font-size: 20px;
+    }
+
+    .mtx-calendar-header-ampm {
+      padding: 4px;
+
+      + .mtx-calendar-header-ampm {
+        margin: 0 8px;
+      }
+    }
+  }
+}
+
+.mtx-calendar {
+  display: block;
+  outline: none;
+}
+
+.mtx-calendar-header {
+  box-sizing: border-box;
+  padding: 8px;
+  border-radius: 4px 4px 0 0;
+
+  .mtx-calendar-header-year,
+  .mtx-calendar-header-date,
+  .mtx-calendar-header-hours,
+  .mtx-calendar-header-minutes,
+  .mtx-calendar-header-ampm {
+    height: auto;
+    min-width: auto;
+    padding: 0 4px;
+    text-align: inherit;
+    line-height: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: normal;
+    white-space: normal;
+    word-break: break-word;
+
+    .mat-mdc-button-touch-target {
+      height: 100%;
+    }
+  }
+
+  .mtx-calendar-header-year {
+    line-height: 24px;
+  }
+}
+
+.mtx-calendar-header-date-time {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.mtx-calendar-header-year,
+.mtx-calendar-header-date,
+.mtx-calendar-header-hours,
+.mtx-calendar-header-minutes,
+.mtx-calendar-header-ampm {
+  &:not(.active) {
+    opacity: .6;
+  }
+
+  &.not-clickable {
+    cursor: initial;
+  }
+}
+
+.mtx-calendar-header-time {
+  display: inline-flex;
+
+  &:not(.active) {
+    opacity: .6;
+
+    .mtx-calendar-header-hours,
+    .mtx-calendar-header-minutes,
+    .mtx-calendar-header-ampm {
+      opacity: 1;
+    }
+  }
+}
+
+.mtx-calendar-header-hour-minute-separator {
+  display: inline-block;
+  width: 8px;
+  text-align: center;
+}
+
+.mtx-calendar-header-ampm-container {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 18px;
+  font-size: 12px;
+}
+
+[mode='landscape'] {
+  @include landscape-calendar-header;
+}
+
+@media all and (orientation: landscape) {
+  [mode='auto'] {
+    @include landscape-calendar-header;
+  }
+}
+
+.mtx-calendar-content {
+  width: 100%;
+  padding: $calendar-padding;
+  outline: none;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.mtx-calendar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 $calendar-controls-side-margin;
+
+  .mat-icon-button:hover .mat-button-focus-overlay {
+    opacity: .04;
+  }
+}
+
+.mtx-calendar-period-button {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.mtx-calendar-previous-button,
+.mtx-calendar-next-button {
+  &.disabled {
+    pointer-events: none;
+  }
+
+  svg {
+    fill: currentColor;
+    vertical-align: top;
+
+    [dir='rtl'] & {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.mtx-calendar-table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.mtx-calendar-table-header th {
+  text-align: center;
+  padding: $calendar-padding 0;
+}

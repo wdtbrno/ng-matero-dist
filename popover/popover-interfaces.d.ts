@@ -1,44 +1,50 @@
-import { ElementRef, EventEmitter, NgZone, TemplateRef } from '@angular/core';
-import { MtxPopoverTriggerEvent, MtxPopoverScrollStrategy, MtxPopoverPosition } from './popover-types';
+import { Direction } from '@angular/cdk/bidi';
+import { EventEmitter, TemplateRef } from '@angular/core';
+import { MtxPopoverTriggerEvent, MtxPopoverPosition, PopoverCloseReason } from './popover-types';
+/**
+ * Interface for a custom popover panel that can be used with `mtxPopoverTriggerFor`.
+ * @docs-private
+ */
 export interface MtxPopoverPanel {
     triggerEvent: MtxPopoverTriggerEvent;
+    enterDelay: number;
+    leaveDelay: number;
     position: MtxPopoverPosition;
     xOffset: number;
     yOffset: number;
-    enterDelay: number;
-    leaveDelay: number;
-    arrowOffsetX: number;
-    arrowOffsetY: number;
-    arrowWidth: number;
-    arrowHeight: number;
     closeOnPanelClick: boolean;
     closeOnBackdropClick: boolean;
-    scrollStrategy: MtxPopoverScrollStrategy;
-    containerPositioning: boolean;
     closeDisabled: boolean;
+    backdropClass?: string;
+    overlayPanelClass?: string | string[];
+    hasBackdrop?: boolean;
     templateRef: TemplateRef<any>;
-    zone: NgZone;
-    closed: EventEmitter<void>;
+    lazyContent?: any;
+    direction?: Direction;
+    readonly panelId?: string;
+    readonly closed: EventEmitter<PopoverCloseReason>;
     setCurrentStyles: (pos?: MtxPopoverPosition) => void;
     setPositionClasses: (pos?: MtxPopoverPosition) => void;
-    _emitCloseEvent: () => void;
+    setElevation: () => void;
 }
-export interface MtxPopoverConfig {
-    triggerEvent: MtxPopoverTriggerEvent;
-    position: MtxPopoverPosition;
-    xOffset: number;
-    yOffset: number;
-    enterDelay: number;
-    leaveDelay: number;
-    arrowOffsetX: number;
-    arrowOffsetY: number;
-    arrowWidth: number;
-    arrowHeight: number;
-    closeOnPanelClick: boolean;
-    closeOnBackdropClick: boolean;
-    panelClass: string;
-    backdropClass: string;
-}
-export interface MtxTarget {
-    _elementRef: ElementRef;
+/** Default `mtx-popover` options that can be overridden. */
+export interface MtxPopoverDefaultOptions {
+    triggerEvent?: MtxPopoverTriggerEvent;
+    enterDelay?: number;
+    leaveDelay?: number;
+    position?: MtxPopoverPosition;
+    xOffset?: number;
+    yOffset?: number;
+    arrowWidth?: number;
+    arrowHeight?: number;
+    arrowOffsetX?: number;
+    arrowOffsetY?: number;
+    closeOnPanelClick?: boolean;
+    closeOnBackdropClick?: boolean;
+    overlayPanelClass?: string;
+    backdropClass?: string;
+    hasBackdrop?: boolean;
+    focusTrapEnabled?: boolean;
+    focusTrapAutoCaptureEnabled?: boolean;
+    elevation?: number;
 }

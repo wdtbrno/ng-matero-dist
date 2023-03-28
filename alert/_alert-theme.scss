@@ -1,29 +1,55 @@
-@import '~@angular/material/theming';
+@use 'sass:map';
+@use '../core/theming/theming';
+@use '../core/theming/palette';
 
-@mixin mtx-alert-theme($theme) {
-  $background: map-get($theme, background);
+@mixin color($config-or-theme) {
+  $config: theming.get-color-config($config-or-theme);
+  $background: map.get($config, background);
 
   .mtx-alert {
-    background-color: mat-color($background, card);
+    background-color: theming.get-color-from-palette($background, card);
   }
 
   .mtx-alert-info.mtx-alert {
-    background-color: mat-color($mat-blue, 500);
+    background-color: theming.get-color-from-palette(palette.$blue-palette, 500);
     color: white;
   }
 
   .mtx-alert-success.mtx-alert {
-    background-color: mat-color($mat-green, 500);
+    background-color: theming.get-color-from-palette(palette.$green-palette, 500);
     color: white;
   }
 
   .mtx-alert-warning.mtx-alert {
-    background-color: mat-color($mat-orange, 500);
+    background-color: theming.get-color-from-palette(palette.$orange-palette, 500);
     color: white;
   }
 
   .mtx-alert-danger.mtx-alert {
-    background-color: mat-color($mat-red, 500);
+    background-color: theming.get-color-from-palette(palette.$red-palette, 500);
     color: white;
+  }
+}
+
+@mixin typography($config-or-theme) {}
+
+@mixin density($config-or-theme) {}
+
+@mixin theme($theme-or-color-config) {
+  $theme: theming.private-legacy-get-theme($theme-or-color-config);
+  @include theming.private-check-duplicate-theme-styles($theme, 'mtx-alert') {
+    $color: theming.get-color-config($theme);
+    $density: theming.get-density-config($theme);
+    $typography: theming.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
+    }
   }
 }
